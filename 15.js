@@ -18,7 +18,8 @@ function log_request(req) {
     if (ua) {
         client.hincrby("ua", ua, 1);
     }
-    client.publish("log", (Date.now() - start) + ", " + req.connection.remoteAddress + " " + 
+    client.publish("log", (Date.now() - start) + ", " + 
+        req.connection.remoteAddress + " " + 
         req.url + " " + ua);
 }
 

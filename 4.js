@@ -3,7 +3,8 @@
 var http = require("http"), server;
 
 server = http.createServer(function (request, response) {
-    var message = "Request from " + request.connection.remoteAddress + " for " + request.url + " " +
+    var message = "Request from " + request.connection.remoteAddress + 
+        " for " + request.url + " " + 
         (request.headers["user-agent"] || "");
 
     response.writeHead(200, {

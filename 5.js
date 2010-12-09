@@ -14,8 +14,7 @@ stdin.on("data", function (chunk) {
 
 server = http.createServer(function (request, response) {
     response.writeHead(200, {
-        "Content-Type": "text/plain",
-        "Server": __filename
+        "Content-Type": "text/plain"
     });
     response.write("Waiting for data...\n");
     waiters.push(response);

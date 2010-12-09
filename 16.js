@@ -22,7 +22,8 @@ function log_request(req) {
     if (ua) {
         redis_client.hincrby("ua", ua, 1);
     }
-    redis_client.publish("log", (Date.now() - start) + ", " + req.connection.remoteAddress + " " + 
+    redis_client.publish("log", (Date.now() - start) + ", " + 
+        req.connection.remoteAddress + " " + 
         req.url + " " + ua);
 }
 

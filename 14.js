@@ -13,19 +13,18 @@ client = redis.createClient();
 server = http.createServer(function (request, response) {
     client.hincrby("url", request.url, 1);
     client.hincrby("ip", request.connection.remoteAddress, 1);
-    client.publish("log", (Date.now() - start) + ", " + request.connection.remoteAddress + " " + request.url + " " +
+    client.publish("log", (Date.now() - start) + ", " + 
+        request.connection.remoteAddress + " " + request.url + " " +
         (request.headers["user-agent"] || ""));
 
     if (request.url === "/favicon.ico") {
         response.writeHead(200, {
-            "Content-Type": "image/x-icon",
-            "Server": __filename
+            "Content-Type": "image/x-icon"
         });
         response.end(favicon);
     } else {
         response.writeHead(200, {
-            "Content-Type": "image/jpeg",
-            "Server": __filename
+            "Content-Type": "image/jpeg"
         });
 
         fs.createReadStream("anchor.jpg").pipe(response);
