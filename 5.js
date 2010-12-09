@@ -22,4 +22,4 @@ server = http.createServer(function (request, response) {
     console.log(waiters.length + " clients waiting");
 });
 
-server.listen(8000);
+server.listen(4000);

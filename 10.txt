@@ -1,0 +1,1 @@
+In-memory K/V store with some specialized V's.
